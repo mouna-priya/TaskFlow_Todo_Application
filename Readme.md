@@ -6,22 +6,22 @@ TaskFlow is a simple, intuitive, and user-friendly task management application b
 
 ## Features
 
-- *Add Tasks:* Create tasks with descriptions, dates, and times.
-- *Edit Tasks:* Update existing tasks.
-- *Delete Tasks:* Remove unwanted tasks.
-- *Mark Tasks as Completed:* Toggle task completion status.
-- *Clear All Tasks:* Easily delete all tasks.
-- *Task Persistence:* Uses MongoDB to store tasks.
-- *Mongo Express Integration:* Web interface to manage MongoDB collections.
+- **Add Tasks:** Create tasks with descriptions, dates, and times.
+- **Edit Tasks:** Update existing tasks.
+- **Delete Tasks:** Remove unwanted tasks.
+- **Mark Tasks as Completed:** Toggle task completion status.
+- **Clear All Tasks:** Easily delete all tasks.
+- **Task Persistence:** Uses MongoDB to store tasks.
+- **Mongo Express Integration:** Web interface to manage MongoDB collections.
 
 ---
 
 ## Tech Stack
 
-- *Backend:* Python with Flask
-- *Frontend:* HTML, Bootstrap
-- *Database:* MongoDB
-- *Containerization:* Docker and Docker Compose
+- **Backend:** Python with Flask
+- **Frontend:** HTML, Bootstrap
+- **Database:** MongoDB
+- **Containerization:** Docker and Docker Compose
 
 ---
 
@@ -35,45 +35,45 @@ Ensure you have the following installed:
 
 ### Clone the Repository
 
-bash
+```bash
 git clone <repository-url>
 cd taskflow-todo-app
-
+```
 
 ### Build and Run the Application
 
 1. Build and start the services:
-   bash
+   ```bash
    docker-compose up --build
-   
+   ```
 
 2. Access the application at [http://localhost:5000](http://localhost:5000).
 3. Access Mongo Express at [http://localhost:8081](http://localhost:8081).
 
 ### Stopping the Application
 
-bash
+```bash
 docker-compose down
-
+```
 
 ---
 
 ## Environment Variables
 
-Create a .env file for storing environment variables:
+Create a `.env` file for storing environment variables:
 
-
+```
 MONGO_INITDB_ROOT_USERNAME=root
 MONGO_INITDB_ROOT_PASSWORD=example
 ME_CONFIG_BASICAUTH_USERNAME=admin
 ME_CONFIG_BASICAUTH_PASSWORD=admin123
-
+```
 
 ---
 
 ## Project Structure
 
-
+```
 ├── app.py              # Main Flask application
 ├── Dockerfile           # Docker image configuration
 ├── docker-compose.yml   # Docker Compose configuration
@@ -81,18 +81,18 @@ ME_CONFIG_BASICAUTH_PASSWORD=admin123
 ├── templates/           # HTML templates
 ├── static/              # Static CSS files
 └── .gitignore           # Ignored files for version control
-
+```
 
 ---
 
 ## API Routes
 
-- *Home Page:* GET /
-- *Add Task:* POST /add
-- *Edit Task:* GET, POST /edit/<task_id>
-- *Delete Task:* GET /delete/<task_id>
-- *Toggle Task Status:* POST /check/<task_id>
-- *Clear All Tasks:* GET /clear_all
+- **Home Page:** `GET /`
+- **Add Task:** `POST /add`
+- **Edit Task:** `GET, POST /edit/<task_id>`
+- **Delete Task:** `GET /delete/<task_id>`
+- **Toggle Task Status:** `POST /check/<task_id>`
+- **Clear All Tasks:** `GET /clear_all`
 
 ---
 
@@ -111,10 +111,6 @@ Contributions are welcome! Feel free to fork the repository and create pull requ
 
 ---
 
-## License
 
-This project is open-source and available under the [MIT License](LICENSE).
+Happy tasking with **TaskFlow**! 🎉
 
----
-
-Happy tasking with *TaskFlow*! 🎉
