@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Todo App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4 stylish-heading">TaskFlow</h1>
+        <p class="text-center mb-4 stylish-tagline">Turn Your Tasks into Achievements</p>
+
+        <form method="POST" action="{{ url_for('add_task') }}" class="mb-4" id="task-form">
+            <div class="input-group">
+                <input type="text" class="form-control" name="task_description" placeholder="Add a new task" required>
+                <input type="date" class="form-control" name="task_date" required>
+                <input type="time" class="form-control" name="task_time" required id="task-time" onchange="hideTimeInputAndSubmit()">
+                <button class="btn btn-primary" type="submit" id="submit-btn">Add</button> <!-- Always visible -->
+            </div>
+        </form>
+
+        <a href="{{ url_for('clear_all') }}" class="btn btn-danger mb-4">Clear All Tasks</a>
+
+        <ul class="list-group">
+            {% if tasks|length == 0 %}
+                <li class="list-group-item text-center">
+                    No tasks available.
+                </li>
+            {% else %}
+                {% for task in tasks %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <form method="POST" action="{{ url_for('check_task', task_id=task._id) }}" class="d-flex align-items-center">
+                            <input type="checkbox" name="done" class="form-check-input me-2" {% if task.done %} checked {% endif %} onchange="this.form.submit()">
+                            <div class="task {% if task.done %} text-decoration-line-through {% endif %}">
+                                <strong>{{ task.task_description }}</strong>
+                                <br>
+                                <small>{{ task.task_date }} | {{ task.task_time }}</small>
+                            </div>
+                        </form>
+
+                        {% if task.done %}
+                            <span class="badge bg-success">Completed</span>
+                        {% endif %}
+
+                        <div class="btn-group" role="group">
+                            <a href="{{ url_for('edit_task', task_id=task._id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="{{ url_for('delete_task', task_id=task._id) }}" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function hideTimeInputAndSubmit() {
+            // Hide the time input once a time is selected
+            document.getElementById('task-time').style.display = 'none';
+
+            // Trigger the form submission
+            document.getElementById('task-form').submit();
+        }
+    </script>
+</body>
+</html>

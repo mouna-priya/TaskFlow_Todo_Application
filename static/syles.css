@@ -1,0 +1,78 @@
+/* Background Color for the body */
+body {
+    background-color: #b3d9ff !important; /* Light Blue Background */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Styling for the container */
+.container {
+    max-width: 900px;
+    margin-top: 50px;
+}
+
+/* Stylish Heading */
+.stylish-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Stylish Tagline */
+.stylish-tagline {
+    font-size: 1.2rem;
+    color: #2980b9;
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Task styles */
+.task {
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Strike-through effect for completed tasks */
+.text-decoration-line-through {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+/* Button Styles */
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+}
+
+.btn-danger:hover, .btn-warning:hover, .btn-secondary:hover {
+    opacity: 0.8;
+}
+
+.mb-4 {
+    margin-bottom: 30px;
+}
+
+/* Add animation effect to buttons */
+.btn {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Styling for the "Completed" label */
+.badge-success {
+    background-color: #28a745;
+    color: white;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
